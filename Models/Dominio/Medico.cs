@@ -11,6 +11,8 @@ namespace WEBCORELP2021.Models.Dominio
     [Table("Medico")]
     public class Medico
     {
+        internal object paciente;
+
         [Key]
         [DisplayName("ID")]
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]

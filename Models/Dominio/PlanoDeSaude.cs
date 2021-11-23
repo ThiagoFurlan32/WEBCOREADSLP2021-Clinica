@@ -25,7 +25,6 @@ namespace WEBCORELP2021.Models.Dominio
         [StringLength(45, ErrorMessage ="Tamanho inválido.")]
         public string descricao { get; set; }
 
-        public Paciente paciente { get; set; }
-        public int pacienteID { get; set; }
+        public ICollection<Paciente> paciente { get; set; }
     }
 }

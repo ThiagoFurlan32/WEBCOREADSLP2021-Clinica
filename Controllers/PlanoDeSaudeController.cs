@@ -48,7 +48,7 @@ namespace WEBCORELP2021.Controllers
         // GET: PlanoDeSaude/Create
         public IActionResult Create()
         {
-            ViewData["pacienteID"] = new SelectList(_context.Pacientes, "id", "cidade");
+           // ViewData["pacienteID"] = new SelectList(_context.Pacientes, "id", "cidade");
             return View();
         }
 
@@ -57,7 +57,7 @@ namespace WEBCORELP2021.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,nome,descricao,pacienteID")] PlanoDeSaude planoDeSaude)
+        public async Task<IActionResult> Create([Bind("id,nome,descricao")] PlanoDeSaude planoDeSaude)
         {
             if (ModelState.IsValid)
             {
@@ -65,7 +65,7 @@ namespace WEBCORELP2021.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["pacienteID"] = new SelectList(_context.Pacientes, "id", "cidade", planoDeSaude.pacienteID);
+            //ViewData["pacienteID"] = new SelectList(_context.Pacientes, "id", "cidade", planoDeSaude.pacienteID);
             return View(planoDeSaude);
         }
 
@@ -82,7 +82,7 @@ namespace WEBCORELP2021.Controllers
             {
                 return NotFound();
             }
-            ViewData["pacienteID"] = new SelectList(_context.Pacientes, "id", "cidade", planoDeSaude.pacienteID);
+            //ViewData["pacienteID"] = new SelectList(_context.Pacientes, "id", "cidade", planoDeSaude.pacienteID);
             return View(planoDeSaude);
         }
 
@@ -91,7 +91,7 @@ namespace WEBCORELP2021.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,nome,descricao,pacienteID")] PlanoDeSaude planoDeSaude)
+        public async Task<IActionResult> Edit(int id, [Bind("id,nome,descricao")] PlanoDeSaude planoDeSaude)
         {
             if (id != planoDeSaude.id)
             {
@@ -118,7 +118,7 @@ namespace WEBCORELP2021.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
-            ViewData["pacienteID"] = new SelectList(_context.Pacientes, "id", "cidade", planoDeSaude.pacienteID);
+            //ViewData["pacienteID"] = new SelectList(_context.Pacientes, "id", "cidade", planoDeSaude.pacienteID);
             return View(planoDeSaude);
         }
 

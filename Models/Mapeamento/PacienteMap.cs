@@ -23,7 +23,7 @@ namespace WEBCORELP2021.Models.Mapeamento
             builder.Property(p => p.cpf).HasMaxLength(14).IsRequired();
             builder.HasIndex(p => p.cpf).IsUnique();
 
-            builder.HasMany(p => p.planoDeSaude).WithOne(p => p.paciente).HasForeignKey(p => p.pacienteID).OnDelete(DeleteBehavior.NoAction);
+            //builder.HasMany(p => p.planoDeSaude).WithOne(p => p.paciente).HasForeignKey(p => p.pacienteID).OnDelete(DeleteBehavior.NoAction);
             builder.HasMany(p => p.consultas).WithOne(p => p.paciente).HasForeignKey(p => p.pacienteID).OnDelete(DeleteBehavior.NoAction);
         }
     }
