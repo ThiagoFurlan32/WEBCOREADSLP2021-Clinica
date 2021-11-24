@@ -22,7 +22,8 @@ namespace WEBCORELP2021.Controllers
         // GET: Paciente
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Pacientes.ToListAsync());
+            var contexto = _context.Pacientes.Include(c => c.planoDeSaude);
+            return View(await contexto.ToListAsync());
         }
 
         // GET: Paciente/Details/5
@@ -34,6 +35,7 @@ namespace WEBCORELP2021.Controllers
             }
 
             var paciente = await _context.Pacientes
+                .Include(c => c.planoDeSaude)
                 .FirstOrDefaultAsync(m => m.id == id);
             if (paciente == null)
             {
@@ -46,6 +48,7 @@ namespace WEBCORELP2021.Controllers
         // GET: Paciente/Create
         public IActionResult Create()
         {
+            ViewData["planoDeSaudeID"] = new SelectList(_context.PlanosDeSaude, "id", "nome");
             return View();
         }
 
@@ -54,7 +57,7 @@ namespace WEBCORELP2021.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,nome,cidade,endereco,idade,email,numero,cpf")] Paciente paciente)
+        public async Task<IActionResult> Create([Bind("id,nome,cidade,endereco,idade,email,numero,cpf,planoDeSaudeID")] Paciente paciente)
         {
             if (ModelState.IsValid)
             {
@@ -62,6 +65,7 @@ namespace WEBCORELP2021.Controllers
                 await _context.SaveChangesAsync();
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["planoDeSaudeID"] = new SelectList(_context.PlanosDeSaude, "id", "nome", paciente.planoDeSaudeID);
             return View(paciente);
         }
 
@@ -78,6 +82,7 @@ namespace WEBCORELP2021.Controllers
             {
                 return NotFound();
             }
+            ViewData["planoDeSaudeID"] = new SelectList(_context.PlanosDeSaude, "id", "nome", paciente.planoDeSaudeID);
             return View(paciente);
         }
 
@@ -86,7 +91,7 @@ namespace WEBCORELP2021.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,nome,cidade,endereco,idade,email,numero,cpf")] Paciente paciente)
+        public async Task<IActionResult> Edit(int id, [Bind("id,nome,cidade,endereco,idade,email,numero,cpf,planoDeSaudeID")] Paciente paciente)
         {
             if (id != paciente.id)
             {
@@ -113,6 +118,7 @@ namespace WEBCORELP2021.Controllers
                 }
                 return RedirectToAction(nameof(Index));
             }
+            ViewData["planoDeSaudeID"] = new SelectList(_context.PlanosDeSaude, "id", "nome", paciente.planoDeSaudeID);
             return View(paciente);
         }
 
@@ -125,6 +131,7 @@ namespace WEBCORELP2021.Controllers
             }
 
             var paciente = await _context.Pacientes
+                .Include(c => c.planoDeSaude)
                 .FirstOrDefaultAsync(m => m.id == id);
             if (paciente == null)
             {

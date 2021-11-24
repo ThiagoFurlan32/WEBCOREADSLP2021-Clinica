@@ -34,6 +34,9 @@
             <th>
                 @Html.DisplayNameFor(model => model.cpf)
             </th>
+            <th>
+                @Html.DisplayNameFor(model => model.planoDeSaude)
+            </th>
             <th></th>
         </tr>
     </thead>
@@ -60,6 +63,9 @@
             </td>
             <td>
                 @Html.DisplayFor(modelItem => item.cpf)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.planoDeSaude.nome)
             </td>
             <td>
                 <a asp-action="Edit" asp-route-id="@item.id">Edit</a> |
