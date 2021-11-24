@@ -18,7 +18,7 @@ namespace WEBCORELP2021.Models.Dominio
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
-        [DisplayName("Medico")]
+        [DisplayName("Nome")]
         [StringLength(45, ErrorMessage ="Tamanho inválido.", MinimumLength = 5)]
         [Required(ErrorMessage ="Campo Obrigatório!")]
         public string nome { get; set; }

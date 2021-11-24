@@ -16,7 +16,7 @@ namespace WEBCORELP2021.Models.Dominio
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
-        [DisplayName("Paciente")]
+        [DisplayName("Nome")]
         [StringLength(45, ErrorMessage ="Tamanho inválido.", MinimumLength = 5)]
         [Required(ErrorMessage ="Campo Obrigatório!")]
         public string nome { get; set; }
@@ -35,7 +35,7 @@ namespace WEBCORELP2021.Models.Dominio
         [Required(ErrorMessage ="Campo Obrigatório!")]
         public int idade { get; set; }
 
-        [DisplayName("Email")]
+        [DisplayName("E-mail")]
         [StringLength(50, ErrorMessage ="Tamanho inválido.")]
         //[DataType(DataType.EmailAddress, ErrorMessage ="E-mail inválido.")]
         [RegularExpression("^[a-zA-Z0-9+-]+[a-zA-Z0-9.+-][a-zA-Z0-9+-]+@[a-zA-Z0-9+-]+[a-zA-Z0-9._+-][.]{1,1}[a-zA-Z]{2,}$", ErrorMessage = "Email inválido")]
@@ -49,7 +49,10 @@ namespace WEBCORELP2021.Models.Dominio
         [StringLength(14)]
         public string cpf { get; set; }
 
+        [DisplayName("Plano de Saúde")]
         public PlanoDeSaude planoDeSaude { get; set; }
+
+        [DisplayName("Plano de Saúde")]
         public int planoDeSaudeID { get; set; }
 
         public ICollection<Consulta> consultas { get; set; }

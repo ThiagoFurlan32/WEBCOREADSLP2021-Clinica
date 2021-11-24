@@ -20,9 +20,16 @@ namespace WEBCORELP2021.Models.Dominio
         [StringLength(45, ErrorMessage ="Tamanho inválido.")]
         public string descricao { get; set; }
 
+        [DisplayName("Médico")]
         public Medico medico { get; set; }
+
+        [DisplayName("Médico")]
         public int medicoID { get; set; }
+
+        [DisplayName("Paciente")]
         public Paciente paciente { get; set; }
+
+        [DisplayName("Paciente")]
         public int pacienteID { get; set; }
     }
 }
