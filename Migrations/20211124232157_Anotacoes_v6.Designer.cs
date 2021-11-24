@@ -9,7 +9,7 @@ using WEBCORELP2021.Models;
 namespace WEBCORELP2021.Migrations
 {
     [DbContext(typeof(Contexto))]
-    [Migration("20211123231528_Anotacoes_v6")]
+    [Migration("20211124232157_Anotacoes_v6")]
     partial class Anotacoes_v6
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -17,7 +17,7 @@ namespace WEBCORELP2021.Migrations
 #pragma warning disable 612, 618
             modelBuilder
                 .HasAnnotation("Relational:MaxIdentifierLength", 128)
-                .HasAnnotation("ProductVersion", "5.0.9")
+                .HasAnnotation("ProductVersion", "5.0.12")
                 .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
             modelBuilder.Entity("WEBCORELP2021.Models.Dominio.Consulta", b =>
