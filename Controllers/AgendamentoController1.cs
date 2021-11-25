@@ -19,12 +19,17 @@ namespace WEBCORELP2021.Controllers
             contexto = context;
         }
 
-        public IActionResult ListarAgendamento()
+        [HttpGet("AgendamentoController1/ListarAgendamento/{pacid}")]
+        public IActionResult ListarAgendamento(int pacid)
         {
+
             IEnumerable<Agendamento> lstAgendamento = from agendamento in contexto.Consultas
                                                       .Include(m => m.medico)
                                                       .Include(p => p.paciente)
                                                       .Include(s => s.paciente.planoDeSaude)
+                                                      .OrderBy(ar => ar.descricao)
+                                                      .ThenBy(agr => agr.paciente.nome)
+                                                      .Where(pa => pa.pacienteID == pacid)
                                                       .ToList()
                                                       select new Agendamento {
                                                           descricaoConsulta = agendamento.descricao,
@@ -36,5 +41,27 @@ namespace WEBCORELP2021.Controllers
 
         }
 
+
+        public IActionResult ListarAgendamento()
+        {
+
+            IEnumerable<Agendamento> lstAgendamento = from agendamento in contexto.Consultas
+                                                      .Include(m => m.medico)
+                                                      .Include(p => p.paciente)
+                                                      .Include(s => s.paciente.planoDeSaude)
+                                                      .OrderBy(ar => ar.descricao)
+                                                      .ThenBy(agr => agr.paciente.nome)
+                                                      //.Where(pa => pa.pacienteID == pacid)
+                                                      .ToList()
+                                                      select new Agendamento
+                                                      {
+                                                          descricaoConsulta = agendamento.descricao,
+                                                          nomeMedico = agendamento.medico.nome,
+                                                          nomePaciente = agendamento.paciente.nome,
+                                                          nomePlano = agendamento.paciente.planoDeSaude.nome
+                                                      };
+            return View(lstAgendamento);
+
+        }
     }
 }

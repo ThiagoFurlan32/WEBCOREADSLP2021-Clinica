@@ -16,7 +16,7 @@ namespace WEBCORELP2021.Models.Dominio
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int id { get; set; }
 
-        [DisplayName("Descrição")]
+        [DisplayName("Horário")]
         [StringLength(45, ErrorMessage ="Tamanho inválido.")]
         public string descricao { get; set; }
 

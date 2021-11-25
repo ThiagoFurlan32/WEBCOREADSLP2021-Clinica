@@ -50,19 +50,7 @@ namespace WEBCORELP2021.Models.Dominio
         public string cpf { get; set; }
 
         [DisplayName("Total de Consultas")]
-        public int total_consultas {
-
-            get {
-
-                int a;
-                a = this.total_consultas + 1;
-                return a;
-
-            } 
-
-        
-        
-        }
+        public int total_consultas { get; set; }
 
         public ICollection<Consulta> consultas { get; set; }
     }
