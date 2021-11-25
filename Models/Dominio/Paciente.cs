@@ -49,10 +49,10 @@ namespace WEBCORELP2021.Models.Dominio
         [StringLength(14)]
         public string cpf { get; set; }
 
-        [DisplayName("Plano de Saúde")]
+        [DisplayName("Convênio")]
         public PlanoDeSaude planoDeSaude { get; set; }
 
-        [DisplayName("Plano de Saúde")]
+        [DisplayName("Convênio")]
         public int planoDeSaudeID { get; set; }
 
         public ICollection<Consulta> consultas { get; set; }
