@@ -54,7 +54,7 @@ namespace WEBCORELP2021.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Create([Bind("id,nome,cidade,endereco,idade,email,numero,cpf")] Medico medico)
+        public async Task<IActionResult> Create([Bind("id,nome,cidade,endereco,idade,email,numero,cpf,total_consultas")] Medico medico)
         {
             if (ModelState.IsValid)
             {
@@ -86,7 +86,7 @@ namespace WEBCORELP2021.Controllers
         // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public async Task<IActionResult> Edit(int id, [Bind("id,nome,cidade,endereco,idade,email,numero,cpf")] Medico medico)
+        public async Task<IActionResult> Edit(int id, [Bind("id,nome,cidade,endereco,idade,email,numero,cpf,total_consultas")] Medico medico)
         {
             if (id != medico.id)
             {
