@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
 using WEBCORELP2021.Models.Dominio;
+using WEBCORELP2021.Models.Consultas;
 
 namespace WEBCORELP2021.Models
 {
@@ -14,5 +15,6 @@ namespace WEBCORELP2021.Models
         public DbSet<PlanoDeSaude> PlanosDeSaude { get; set; }
         public DbSet<Medico> Medicos { get; set; }
         public DbSet<Consulta> Consultas { get; set; }
+        public DbSet<WEBCORELP2021.Models.Consultas.PivotPlanodeSaude> PivotPlanodeSaude { get; set; }
     }
 }
