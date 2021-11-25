@@ -1,0 +1,53 @@
+﻿@model IEnumerable<WEBCORELP2021.Models.Consultas.Agendamento>
+
+@{
+    ViewData["Title"] = "ListarAgendamento";
+}
+
+<h1>ListarAgendamento</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nomeMedico)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nomePaciente)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.nomePlano)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descricaoConsulta)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomeMedico)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomePaciente)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.nomePlano)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descricaoConsulta)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
