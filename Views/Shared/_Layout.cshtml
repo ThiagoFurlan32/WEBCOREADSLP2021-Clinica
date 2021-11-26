@@ -7,9 +7,9 @@
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
 </head>
-<body>
+<body class="text-light bg-dark">
     <header>
-        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
+        <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-dark bg-dark border-bottom box-shadow mb-3">
             <div class="container">
                 <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Clinica System</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
@@ -19,22 +19,22 @@
                 <div class="navbar-collapse collapse d-sm-inline-flex justify-content-between">
                     <ul class="navbar-nav flex-grow-1">
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Consulta" asp-action="Index">Consulta</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Consulta" asp-action="Index">Consulta</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Paciente" asp-action="Index">Paciente</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Paciente" asp-action="Index">Paciente</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Medico" asp-action="Index">Medico</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="Medico" asp-action="Index">Medico</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="PlanoDeSaude" asp-action="Index">Plano de Saúde</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="PlanoDeSaude" asp-action="Index">Plano de Saúde</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="AgendamentoController1" asp-action="ListarAgendamento">Agendamentos</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="AgendamentoController1" asp-action="ListarAgendamento">Agendamentos</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="AgendamentoController1" asp-action="PivotPlanodeSaude">Pivot de Convênios</a>
+                            <a class="nav-link text-light" asp-area="" asp-controller="AgendamentoController1" asp-action="PivotPlanodeSaude">Pivot de Convênios</a>
                         </li>
                     </ul>
                 </div>
@@ -42,12 +42,12 @@
         </nav>
     </header>
     <div class="container">
-        <main role="main" class="pb-3">
+        <main role="main" class="pb-3 text-light">
             @RenderBody()
         </main>
     </div>
 
-    <footer class="border-top footer text-muted">
+    <footer class="border-top footer text-light bg-dark">
         <div class="container">
             &copy; 2021 - Clinica System - <a asp-area="" asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
