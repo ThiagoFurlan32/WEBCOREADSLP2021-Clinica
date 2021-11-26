@@ -22,7 +22,8 @@ namespace WEBCORELP2021.Controllers
         // GET: Paciente
         public async Task<IActionResult> Index()
         {
-            var contexto = _context.Pacientes.Include(c => c.planoDeSaude);
+            var contexto = _context.Pacientes.Include(c => c.planoDeSaude).OrderBy(ar => ar.nome)
+                                                      .ThenBy(agr => agr.cidade);
             return View(await contexto.ToListAsync());
         }
 
